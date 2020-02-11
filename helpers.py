@@ -1,3 +1,4 @@
+# Nonlinear Transfrom Shiz
 def nonLinearTransform(df0, train=False):
     df = df0.copy()
     # Reset y's to regression target
@@ -14,3 +15,9 @@ def nonLinearTransform(df0, train=False):
 
 train_df = nonLinearTransform(pd.read_csv('train.csv'), train=True)
 train_df.head(5)
+
+# AUROC
+from sklearn.metrics import roc_auc_score as auc
+clf.fit(X, Y)
+Y_fake = clf.predict(valX)
+auc(valY, Y_fake)
